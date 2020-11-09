@@ -46,7 +46,7 @@ In your auth0 dashboard be sure to enable RBAC or add in this custom rule
  */
 function extendUserInfo(user, context, callback) {
     const uuid = require('uuid@3.3.2');
-    const namespace = 'https://YOURDOMAINHERE.auth0.com';
+    const namespace = 'https://bcwclassroom.us.auth0.com';
     context.idToken = context.idToken || {};
     context.authorization = context.authorization || {};
     user.app_metadata = user.app_metadata || { new: true };
