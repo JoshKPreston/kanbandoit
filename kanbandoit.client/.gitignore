@@ -2,6 +2,7 @@
 node_modules
 /dist
 .vscode
+*AuthConfig.js
 
 # local env files
 .env.local
