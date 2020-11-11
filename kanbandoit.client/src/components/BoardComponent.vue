@@ -1,8 +1,7 @@
 <template>
-  <div class="BoardComponent col-3 m-5">
-    <h1>
-      {{ board.title }}
-    </h1>
+  <div class="BoardComponent col-3 m-5 card">
+    <h1> {{ board.boardTitle }} </h1>
+    <h3> {{ board.boardDescription }} </h3>
   </div>
 </template>
 
