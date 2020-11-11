@@ -1,5 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <SideNavBar />
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -82,8 +83,10 @@
 import { AuthService } from '../services/AuthService'
 import { AppState } from '../AppState'
 import { computed, reactive } from 'vue'
+import SideNavBar from '../components/sideNaveBar'
 export default {
   name: 'Navbar',
+  components: { SideNavBar },
   setup() {
     const state = reactive({
       dropOpen: false
