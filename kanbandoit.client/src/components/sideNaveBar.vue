@@ -5,15 +5,28 @@
          class="closebtn"
          @click="closeNav()"
       >&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <li class="nav-item">
+        <router-link :to="{ name: 'Home' }" class="nav-link">
+          Home
+        </router-link>
+      </li>
+
+      <li class="nav-item">
+        <router-link :to="{ name: 'About' }" class="nav-link">
+          About
+        </router-link>
+      </li>
+
+      <li class="nav-item">
+        <router-link :to="{ name: 'Profile' }" class="nav-link">
+          Profile
+        </router-link>
+      </li>
     </div>
 
     <!-- Use any element to open the sidenav -->
     <div @click="openNav()" class="side-nav-btn-open">
-      <i class="fas fa-align-justify"></i>
+      <i class="fa fa-align-justify fa-4x text-light"></i>
     </div>
 
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
