@@ -12,6 +12,9 @@
         /> -->
     <!-- </div> -->
     <!-- </router-link> -->
+    <div class="create-board-btn">
+      <CreateBoardComponent />
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -86,9 +89,11 @@ import { AuthService } from '../services/AuthService'
 import { AppState } from '../AppState'
 import { computed, reactive } from 'vue'
 import SideNavBar from '../components/sideNaveBar'
+import CreateBoardComponent from '../components/CreateBoardComponent'
+
 export default {
   name: 'Navbar',
-  components: { SideNavBar },
+  components: { SideNavBar, CreateBoardComponent },
   setup() {
     const state = reactive({
       dropOpen: false

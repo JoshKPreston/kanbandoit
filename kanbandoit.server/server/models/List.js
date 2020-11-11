@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
-// const objectId = schema.Types.ObjectId
-const Board = new Schema({
+const objectId = Schema.Types.ObjectId
+const List = new Schema({
   title: {
     type: String,
     required: true
@@ -10,10 +10,23 @@ const Board = new Schema({
     type: String,
     default: 'No Description...'
   },
+  status: {
+    type: Boolean,
+    default: false
+  },
+  // color: {
+  //   type: Boolean,
+  //   default: false
+  // },
   creatorId: {
     type: String,
     required: true,
     ref: 'Profile'
+  },
+  boardId: {
+    type: objectId,
+    required: true,
+    ref: 'Board'
   }
 }, {
   timestamps: true,
@@ -22,11 +35,11 @@ const Board = new Schema({
   }
 })
 
-Board.virtual('creator', {
+List.virtual('creator', {
   localField: 'creatorId',
   ref: 'Profile',
   foreignField: '_id',
   justOne: true
 })
 
-export default Board
+export default List
