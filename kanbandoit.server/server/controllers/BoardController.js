@@ -6,10 +6,10 @@ export class BoardController extends BaseController {
   constructor() {
     super('api/board')
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('', this.postBoard)
       .get('', this.getAllBoards)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:boardId', this.getBoardById)
+      .post('', this.postBoard)
       .put('/:boardId', this.editBoardById)
       .delete('/:boardId')
   }
