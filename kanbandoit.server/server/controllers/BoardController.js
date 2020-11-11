@@ -29,7 +29,7 @@ export class BoardController extends BaseController {
       res.send(await boardService.getAllBoards())
     } catch (error) {
       logger.error('Failed to Get All Boards On service from the Dark Side')
-      next()
+      next(error)
     }
   }
 
@@ -38,7 +38,7 @@ export class BoardController extends BaseController {
       res.send(await boardService.getBoardById(req.params.boardId))
     } catch (error) {
       logger.error('Failed to Get Board By Id Boards On service from the Dark Side')
-      next()
+      next(error)
     }
   }
 
@@ -58,7 +58,7 @@ export class BoardController extends BaseController {
       res.send(await boardService.deleteBoardById(req.params.boardId, req.body, currentUserId))
     } catch (error) {
       logger.error('Failed to Delete Board By Id Boards On service from the Dark Side')
-      next()
+      next(error)
     }
   }
 }
