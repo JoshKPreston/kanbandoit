@@ -6,13 +6,27 @@ const Board = new Schema({
     type: String,
     required: true
   },
+  boardDescription: {
+    type: String,
+    default: 'No Description...'
+  },
   creatorId: {
     type: String,
-    required: true
-  },
-  creatorEmail: {
-    type: String,
-    required: true
+    required: true,
+    ref: 'Profile'
+  }
+}, {
+  timestamps: true,
+  toJSON: {
+    virtuals: true
   }
 })
+
+Board.virtual('creator', {
+  localField: 'creatorId',
+  ref: 'Profile',
+  foreignField: '_id',
+  justOne: true
+})
+
 export default Board

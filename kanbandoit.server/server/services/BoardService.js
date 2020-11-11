@@ -1,11 +1,13 @@
 import { logger } from '../utils/Logger'
 import { dbContext } from '../db/DbContext'
+import { BadRequest } from '../utils/Errors'
 class BoardService {
-  async postBoard() {
+  async postBoard(reqBody) {
     try {
-      return await dbContext.Board.create()
+      return await dbContext.Board.create(reqBody)
     } catch (error) {
-      logger.error('Failed to Get All Boards On Db from the Dark Side')
+      throw new BadRequest(error)
+      // logger.error('Failed to Get All Boards On Db from the Dark Side')
     }
   }
 
@@ -30,6 +32,14 @@ class BoardService {
       if (currentUserId === reqBody.creatorId) { return await dbContext.Board.findByIdAndUpdate(boardId, reqBody, { new: true }) }
     } catch (error) {
       logger.error('Failed to Edit Board By Id On Db from the Dark Side')
+    }
+  }
+
+  async deleteBoardById(boardId, reqBody, currentUserId) {
+    try {
+      if (currentUserId === reqBody.creatorId) { return await dbContext.Board.findByIdAndDelete(boardId) }
+    } catch (error) {
+      logger.error('Failed to Delete Board By Id On Db from the Dark Side')
     }
   }
 }
