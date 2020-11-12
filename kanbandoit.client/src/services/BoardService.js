@@ -17,6 +17,7 @@ class BoardService {
       const res = await api.get('api/board/' + boardId)
       AppState.board = res.data
       logger.log(res.data)
+      logger.log(AppState.board)
     } catch (error) {
       logger.error(error)
     }

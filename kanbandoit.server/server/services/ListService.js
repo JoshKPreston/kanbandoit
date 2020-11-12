@@ -11,7 +11,7 @@ class ListService {
     }
   }
 
-  async getAllLists() {
+  async getAllLists(currentUserId) {
     try {
       return await dbContext.List.find()
     } catch (error) {

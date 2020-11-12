@@ -22,9 +22,9 @@ class ListService {
     }
   }
 
-  async createList(boardId, newList) {
+  async createList(newList) {
     try {
-      const res = await api.post('api/board/' + boardId + '/lists', newList)
+      const res = await api.post('api/board/' + newList.boardId + '/lists', newList)
       AppState.lists = [...AppState.lists, res.data]
       logger.log(res.data)
     } catch (error) {

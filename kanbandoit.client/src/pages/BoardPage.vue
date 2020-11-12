@@ -19,7 +19,7 @@ export default {
   setup() {
     const route = useRoute()
     onMounted(() => {
-      listService.getAllLists(route.params.boardId)
+      listService.getAllLists(route.params.id)
     })
     const state = reactive({
       newList: {}

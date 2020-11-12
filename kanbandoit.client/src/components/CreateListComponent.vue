@@ -60,18 +60,19 @@
 import { computed, reactive } from 'vue'
 import { listService } from '../services/ListService'
 import { AppState } from '../AppState'
-
+import { useRoute } from 'vue-router'
 export default {
   name: 'CreateList',
   setup() {
+    const route = useRoute()
     const state = reactive({
       newList: {}
     })
     return {
       state,
       board: computed(() => AppState.board),
-      createList(board) {
-        state.newList.boardId = board._id
+      createList() {
+        state.newList.boardId = route.params.id
         listService.createList(state.newList)
         state.newList = {}
       }
