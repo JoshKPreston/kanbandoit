@@ -42,13 +42,9 @@ class BoardService {
     }
   }
 
-  async deleteBoardById(boardId, reqBody, currentUserId) {
+  async deleteBoardById(boardId, currentUserId) {
     try {
-      if (currentUserId !== reqBody.creatorId) {
-        throw new BadRequest('You are not creator of this board!')
-      } else {
-        return await dbContext.Board.findByIdAndDelete(boardId)
-      }
+      return await dbContext.Board.findOneAndDelete({ _id: boardId, creatorId: currentUserId })
     } catch (error) {
       throw new BadRequest(error)
       // logger.error('Failed to Delete Board By Id On Db from the Dark Side')

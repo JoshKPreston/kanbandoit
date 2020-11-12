@@ -3,10 +3,10 @@
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <input class="board-title border-0" type="text" v-model="board.title" @change="editBoard(board)" />
     <textarea class="board-description" type="text" v-model="board.description" @change="editBoard(board)" />
-    <button @click="openBoard(board._id)">
+    <button @click="openBoard(board)">
       Open
     </button>
-    <button @click="deleteBoard(board._id)">
+    <button @click="deleteBoard(board)">
       Delete
     </button>
   </div>
@@ -36,10 +36,11 @@ export default {
     })
     return {
       state,
+      // profile: computed(() => AppState.profile),
       board: computed(() => props.boardProp),
-      openBoard(boardId) {
-        boardService.getBoardById(boardId)
-        router.push({ name: 'Board', params: { id: boardId } })
+      openBoard(board) {
+        boardService.getBoardById(board._id)
+        router.push({ name: 'Board', params: { id: board._id } })
       },
       editBoard: (board) => {
         boardService.editBoard(board)

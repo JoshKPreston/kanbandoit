@@ -2,6 +2,7 @@ import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { boardService } from '../services/BoardService'
 import { logger } from '../utils/Logger'
+import { dbContext } from '../db/DbContext'
 export class BoardController extends BaseController {
   constructor() {
     super('api/board')
@@ -11,7 +12,7 @@ export class BoardController extends BaseController {
       .get('/:boardId', this.getBoardById)
       .post('', this.postBoard)
       .put('/:boardId', this.editBoardById)
-      .delete('/:boardId')
+      .delete('/:boardId', this.deleteBoardById)
   }
 
   async postBoard(req, res, next) {
@@ -55,7 +56,7 @@ export class BoardController extends BaseController {
   async deleteBoardById(req, res, next) {
     try {
       const currentUserId = req.userInfo.id
-      res.send(await boardService.deleteBoardById(req.params.boardId, req.body, currentUserId))
+      res.send(await boardService.deleteBoardById(req.params.boardId, currentUserId))
     } catch (error) {
       logger.error('Failed to Delete Board By Id Boards On service from the Dark Side')
       next(error)
