@@ -22,8 +22,18 @@ import { AppState } from './AppState'
 export default {
   name: 'App',
   setup() {
+    // onMounted(() => {
+    //   // eslint-disable-next-line no-undef
+    //   $('body').mousewheel(function(event, delta) {
+    //     this.scrollLeft -= (delta * 30)
+
+    //     event.preventDefault()
+    //   })
+    // })
     return {
+
       appState: computed(() => AppState)
+
     }
   }
 }

@@ -5,23 +5,28 @@
          class="closebtn"
          @click="closeNav()"
       >&times;</a>
-      <li class="nav-item">
-        <router-link :to="{ name: 'Home' }" class="nav-link">
-          Home
-        </router-link>
-      </li>
+      <div class="side-nav-routes">
+        <li class="nav-item">
+          <router-link :to="{ name: 'Home' }" class="nav-link">
+            Home
+          </router-link>
+        </li>
 
-      <li class="nav-item">
-        <router-link :to="{ name: 'About' }" class="nav-link">
-          About
-        </router-link>
-      </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'About' }" class="nav-link">
+            About
+          </router-link>
+        </li>
 
-      <li class="nav-item">
-        <router-link :to="{ name: 'Profile' }" class="nav-link">
-          Profile
-        </router-link>
-      </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Profile' }" class="nav-link">
+            Profile
+          </router-link>
+        </li>
+      </div>
+      <div class="side-nav-logo">
+        <img src="../images/Bonzai.svg" class="logo" alt="" @click="routeHome">
+      </div>
     </div>
 
     <!-- Use any element to open the sidenav -->
@@ -30,13 +35,15 @@
     </div>
 
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-    <div id="main">
+    <!-- <div id="main">
       ...
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
+import router from '../router'
+
 export default {
   name: 'SideNaveBar',
   setup() {
@@ -46,6 +53,9 @@ export default {
       },
       closeNav() {
         document.getElementById('mySidenav').style.width = '0'
+      },
+      routeHome() {
+        router.push({ name: 'Home' })
       }
     }
   },
@@ -54,10 +64,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+li{
+  list-style: none;
+}
+.side-nav-logo{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.sidenav{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
 .side-nav-btn-open{
   cursor: pointer;
 }
+.logo {
+  box-shadow: 1px 1px 10px 0px black;
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  opacity: 50%;
+  background-color: #CFBBA3;
+}
+.logo:active{
+  box-shadow: -1px -1px -10px 0px red;
 
+  opacity: 25%;
+}
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */

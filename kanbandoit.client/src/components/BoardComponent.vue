@@ -1,14 +1,16 @@
 <template>
-  <div class="BoardComponent col-3 m-5 card">
+  <div class="BoardComponent col-3 m-5 bg-secondary rounded">
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
-    <input class="board-title border-0" type="text" v-model="board.title" @change="editBoard(board)" />
-    <textarea class="board-description" type="text" v-model="board.description" @change="editBoard(board)" />
-    <button @click="openBoard(board)">
-      Open
-    </button>
-    <button @click="deleteBoard(board)">
-      Delete
-    </button>
+    <div class="row p-3">
+      <input class="board-title border-0 bg-secondary" type="text" v-model="board.title" @change="editBoard(board)" />
+      <textarea class="board-description border-0 bg-secondary" rows="5" type="text" v-model="board.description" @change="editBoard(board)" />
+      <button @click="openBoard(board)" class="btn btn-success ml-3 mb-2">
+        Open
+      </button>
+      <button @click="deleteBoard(board)" class="btn btn-primary ml-3 mb-2">
+        Delete
+      </button>
+    </div>
   </div>
 </template>
 
@@ -55,6 +57,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.board-description{
+  resize: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 </style>
 

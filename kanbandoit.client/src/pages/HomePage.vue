@@ -1,9 +1,11 @@
 <template>
-  <div class="home container-fluid">
-    <div class="row">
-      <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
+  <transition name="route">
+    <div class="home bg-body-bg">
+      <div class="">
+        <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -30,11 +32,20 @@ export default {
 
 <style scoped lang="scss">
 .home{
+  height: 80vh;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
   text-align: center;
   user-select: none;
   > img{
     height: 200px;
     width: 200px;
+  }
+   div {
+    display: inline-block;
+    width: min-content;
   }
 }
 </style>

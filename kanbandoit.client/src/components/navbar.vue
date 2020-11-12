@@ -1,7 +1,14 @@
 <template>
-  <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="div col">
+  <nav class="row navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="div col-2">
       <SideNavBar class="d-flex align-self-center" />
+    </div>
+    <div class="col-2">
+      <router-link :to="{name: 'Home'}">
+        <img src="../images/Bonzai.svg" class="logo" alt="">
+      </router-link>
+    </div>
+    <div class="col-5">
     </div>
     <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
@@ -26,7 +33,7 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse col" id="navbarText">
       <!-- <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link">
@@ -113,6 +120,20 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  box-shadow: 1px 1px 10px 0px black;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  opacity: 80%;
+  background-color: #CFBBA3;
+}
+.logo:active{
+  box-shadow: -1px -1px -10px 0px red;
+
+  opacity: 50%;
+}
+
 .dropdown-menu {
   user-select: none;
   display: block;
