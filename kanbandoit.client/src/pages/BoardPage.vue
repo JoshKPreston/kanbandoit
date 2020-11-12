@@ -12,6 +12,7 @@ import { AppState } from '../AppState'
 // import CreateListComponent from '../components/CreateListComponent'
 // import ListComponent from '../components/ListComponent'
 import { listService } from '../services/ListService'
+import { taskService } from '../services/TaskService'
 import { useRoute } from 'vue-router'
 
 export default {
@@ -20,6 +21,7 @@ export default {
     const route = useRoute()
     onMounted(() => {
       listService.getAllLists(route.params.id)
+      taskService.getAllTasks(route.params.id)
     })
     const state = reactive({
       newList: {}

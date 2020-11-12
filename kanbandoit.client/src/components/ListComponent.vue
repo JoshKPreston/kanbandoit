@@ -6,7 +6,11 @@
       <button @click="deleteList(list)" class="btn btn-primary ml-3 mb-2">
         Delete
       </button>
+      <button @click="createTask(list)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
     </div>
+    <TaskComponent v-for="t in tasks" :key="t._id" :task-prop="t" :list-prop="list" />
   </div>
 </template>
 
@@ -14,6 +18,8 @@
 import { computed, reactive } from 'vue'
 import { listService } from '../services/ListService'
 import { useRoute } from 'vue-router'
+import { taskService } from '../services/TaskService'
+import { AppState } from '../AppState'
 
 export default {
   name: 'ListComponent',
@@ -28,12 +34,14 @@ export default {
   setup(props) {
     const route = useRoute()
     const state = reactive({
-      title: ''
+      title: '',
+      newTask: {}
     })
     return {
       state,
       // profile: computed(() => AppState.profile),
       list: computed(() => props.listProp),
+      tasks: computed(() => AppState.tasks),
       // openList(list) {
       //   listService.getListById(list._id)
       // },
@@ -42,6 +50,11 @@ export default {
       },
       deleteList: (list) => {
         listService.deleteList(list, route.params.id)
+      },
+      createTask: (list) => {
+        state.newTask.boardId = route.params.id
+        state.newTask.listId = list._id
+        taskService.createTask(state.newTask)
       }
     }
   },
