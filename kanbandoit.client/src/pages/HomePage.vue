@@ -48,4 +48,8 @@ export default {
     width: min-content;
   }
 }
+
+.home::-webkit-scrollbar {
+  width: 0;
+}
 </style>
