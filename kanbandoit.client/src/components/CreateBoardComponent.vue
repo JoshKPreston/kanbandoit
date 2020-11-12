@@ -7,7 +7,7 @@
       data-toggle="modal"
       data-target="#createBoard"
     >
-      <i class="fas fa-scroll"></i>
+      <i class="fa fa-th-large" aria-hidden="true"></i>
     </button>
     <!-- Modal -->
     <div

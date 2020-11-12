@@ -7,7 +7,7 @@
       data-toggle="modal"
       data-target="#createList"
     >
-      <i class="fas fa-scroll"></i>
+      <i class="fa fa-th-list" aria-hidden="true"></i>
     </button>
     <!-- Modal -->
     <div
