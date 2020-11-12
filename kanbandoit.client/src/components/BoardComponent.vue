@@ -3,7 +3,7 @@
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row p-3">
       <input class="board-title border-0 bg-secondary" type="text" v-model="board.title" @change="editBoard(board)" />
-      <textarea class="board-description border-0 bg-secondary" rows="5" type="text" v-model="board.description" @change="editBoard(board)" />
+      <textarea class="board-description border-0 bg-secondary" rows="5" v-model="board.description" @change="editBoard(board)"></textarea>
       <button @click="openBoard(board)" class="btn btn-success ml-3 mb-2">
         Open
       </button>
@@ -18,6 +18,7 @@
 import { computed, reactive } from 'vue'
 import { boardService } from '../services/BoardService'
 import router from '../router'
+// import { useRouter } from 'vue-router'
 
 export default {
   name: 'BoardComponent',
@@ -30,6 +31,7 @@ export default {
     }
   },
   setup(props) {
+    // const router = useRouter()
     // onMounted((board) => {
     //   state.title = board.title
     // })
@@ -41,7 +43,7 @@ export default {
       // profile: computed(() => AppState.profile),
       board: computed(() => props.boardProp),
       openBoard(board) {
-        boardService.getBoardById(board._id)
+        // boardService.getBoardById(board._id)
         router.push({ name: 'Board', params: { id: board._id } })
       },
       editBoard: (board) => {

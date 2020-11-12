@@ -12,15 +12,15 @@ class ListService {
     }
   }
 
-  async getListById(boardId, listId) {
-    try {
-      const res = await api.get('api/board/' + boardId + '/lists/' + listId)
-      AppState.list = res.data
-      logger.log(res.data)
-    } catch (error) {
-      logger.error(error)
-    }
-  }
+  // async getListById(boardId, listId) {
+  //   try {
+  //     const res = await api.get('api/board/' + boardId + '/lists/' + listId)
+  //     AppState.list = res.data
+  //     logger.log(res.data)
+  //   } catch (error) {
+  //     logger.error(error)
+  //   }
+  // }
 
   async createList(newList) {
     try {
@@ -32,7 +32,7 @@ class ListService {
     }
   }
 
-  async editList(boardId, list) {
+  async editList(list, boardId) {
     try {
       const res = await api.put('api/board/' + boardId + '/lists/' + list._id, list)
       const index = AppState.lists.findIndex(l => l._id === list._id)
@@ -43,7 +43,7 @@ class ListService {
     }
   }
 
-  async deleteList(boardId, list) {
+  async deleteList(list, boardId) {
     try {
       const res = await api.delete('api/board/' + boardId + '/lists/' + list._id)
       const index = AppState.lists.findIndex(l => l._id === list._id)

@@ -7,7 +7,6 @@
 .route-enter-active,
 .route-leave-active {
   transition: all .5s ease-in-out;
-  transform: translateX(-100vw); // try changing 0s to .25s
 }
 .route-enter-from,
 .route-leave-to {

@@ -1,5 +1,5 @@
 <template>
-  <div class="ListComponent col-3 m-5 bg-secondary rounded">
+  <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row p-3">
       <input class="list-title border-0 bg-secondary" type="text" v-model="list.title" @change="editList(list)" />
@@ -13,6 +13,7 @@
 <script>
 import { computed, reactive } from 'vue'
 import { listService } from '../services/ListService'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'ListComponent',
@@ -25,6 +26,7 @@ export default {
     }
   },
   setup(props) {
+    const route = useRoute()
     const state = reactive({
       title: ''
     })
@@ -32,14 +34,14 @@ export default {
       state,
       // profile: computed(() => AppState.profile),
       list: computed(() => props.listProp),
-      openList(list) {
-        listService.getListById(list._id)
-      },
+      // openList(list) {
+      //   listService.getListById(list._id)
+      // },
       editList: (list) => {
-        listService.editList(list)
+        listService.editList(list, route.params.id)
       },
       deleteList: (list) => {
-        listService.deleteList(list)
+        listService.deleteList(list, route.params.id)
       }
     }
   },

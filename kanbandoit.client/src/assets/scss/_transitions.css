@@ -1,7 +1,6 @@
 .route-enter-active,
 .route-leave-active {
   transition: all .5s ease-in-out;
-  transform: translateX(-100vw);
 }
 
 .route-enter-from,

@@ -1,7 +1,7 @@
 <template>
   <CreateListComponent />
   <div class="BoardPage container-fluid">
-    <ListComponent v-for="l in lists" :key="l._id" list-prop="l" />
+    <ListComponent v-for="l in lists" :key="l._id" :list-prop="l" />
   </div>
 </template>
 
@@ -9,8 +9,8 @@
 
 import { computed, onMounted, reactive } from 'vue'
 import { AppState } from '../AppState'
-import CreateListComponent from '../components/CreateListComponent'
-import ListComponent from '../components/ListComponent'
+// import CreateListComponent from '../components/CreateListComponent'
+// import ListComponent from '../components/ListComponent'
 import { listService } from '../services/ListService'
 import { useRoute } from 'vue-router'
 
@@ -27,13 +27,10 @@ export default {
     return {
       state,
       board: computed(() => AppState.board),
-      lists: computed(() => AppState.lists),
-      createList(boardId, newList) {
-
-      }
+      lists: computed(() => AppState.lists)
     }
-  },
-  components: { ListComponent, CreateListComponent }
+  }
+  // components: { ListComponent }
 }
 </script>
 

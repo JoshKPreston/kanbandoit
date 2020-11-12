@@ -1,11 +1,11 @@
 <template>
-  <transition name="route">
-    <div class="home bg-body-bg">
-      <div class="">
-        <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
-      </div>
+  <!-- <transition name="route"> -->
+  <div class="home bg-body-bg">
+    <div class="">
+      <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
     </div>
-  </transition>
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
