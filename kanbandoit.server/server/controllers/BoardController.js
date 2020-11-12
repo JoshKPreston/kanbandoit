@@ -2,7 +2,6 @@ import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { boardService } from '../services/BoardService'
 import { logger } from '../utils/Logger'
-import { dbContext } from '../db/DbContext'
 export class BoardController extends BaseController {
   constructor() {
     super('api/board')
