@@ -1,12 +1,14 @@
 <template>
-  <div class="TaskComponent row align-items-center p-2 text-light">
-    <span class="col-2" @click="createComment(list, task)">
-      <i class="fa fa-commenting" aria-hidden="true"></i>
-    </span>
-    <input class="col-8 task-title border-0 bg-secondary form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
-    <span class="col-1" @click="deleteTask(list, task)">
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </span>
+  <div class="TaskComponent row align-items-center p-2 text-light border">
+    <input class="pl-5 col-8 task-title border-0 bg-secondary form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
+    <div class="col-4 text-center">
+      <span @click="deleteTask(list, task)">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </span>
+      <span @click="createComment(list, task)">
+        <i class="fa fa-commenting" aria-hidden="true"></i>
+      </span>
+    </div>
     <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" :list-prop="list" />
   </div>
 </template>

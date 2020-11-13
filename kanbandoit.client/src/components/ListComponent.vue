@@ -3,13 +3,15 @@
   <div class="ListComponent col-4 p-3 m-3 bg-secondary card">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row align-items-center p-2 bg-primary">
-      <span class="col-2" @click="createTask(list)">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </span>
-      <input class="col-8 list-title border-0 bg-secondary form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
-      <span class="col-1" @click="deleteList(list)">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </span>
+      <input class="col-10 list-title border-0 bg-secondary form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
+      <div class="col-2 text-center">
+        <span @click="deleteList(list)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </span>
+        <span @click="createTask(list)">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </span>
+      </div>
     </div>
     <TaskComponent v-for="t in tasks" :key="t._id" :task-prop="t" :list-prop="list" />
   </div>

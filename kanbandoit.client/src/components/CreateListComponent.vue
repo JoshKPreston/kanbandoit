@@ -1,9 +1,9 @@
 <template>
-  <div class="CreateListComponent">
+  <div class="CreateListComponent p-3">
     <!-- Button trigger modal -->
     <button
       type="button"
-      class="btn btn-light"
+      class="btn btn-primary"
       data-toggle="modal"
       data-target="#createList"
     >
@@ -32,7 +32,7 @@
                 aria-label="Close"
               >
                 <span aria-hidden="true">
-                  <i class="fa fa-times" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
                 </span>
               </button>
             </div>

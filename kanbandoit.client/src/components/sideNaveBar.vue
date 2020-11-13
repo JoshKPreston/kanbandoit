@@ -1,37 +1,32 @@
 <template>
-  <div class="SideNaveBar">
+  <!-- Use any element to open the sidenav -->
+  <div @click="openNav()" class="side-nav-btn-open p-3">
+    <!-- <i class="fa fa-align-justify fa-4x text-light"></i> -->
+    <button class="btn btn-primary">
+      <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="SideNaveBar text-center">
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)"
+      <!-- <a href="javascript:void(0)"
          class="closebtn"
          @click="closeNav()"
-      >&times;</a>
-      <div class="side-nav-routes">
-        <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
-            Home
-          </router-link>
-        </li>
-
-        <li class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
-            About
-          </router-link>
-        </li>
-
-        <li class="nav-item">
-          <router-link :to="{ name: 'Profile' }" class="nav-link">
-            Profile
-          </router-link>
-        </li>
+      >&times;</a> -->
+      <div class="side-nav-routes d-flex flex-column justify-content-center">
+        <router-link :to="{ name: 'Home' }" @click="closeNav()">
+          Home
+        </router-link>
+        <router-link :to="{ name: 'About' }" @click="closeNav()">
+          About
+        </router-link>
+        <router-link :to="{ name: 'Profile' }" @click="closeNav()">
+          Profile
+        </router-link>
       </div>
       <div class="side-nav-logo">
         <img src="../images/Bonzai.svg" class="logo" alt="" @click="routeHome">
       </div>
-    </div>
-
-    <!-- Use any element to open the sidenav -->
-    <div @click="openNav()" class="side-nav-btn-open">
-      <i class="fa fa-align-justify fa-4x text-light"></i>
     </div>
 
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
@@ -64,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  padding: 0;
+}
 li{
   list-style: none;
 }
@@ -89,7 +87,6 @@ li{
 }
 .logo:active{
   box-shadow: -1px -1px -10px 0px red;
-
   opacity: 25%;
 }
 /* The side navigation menu */
@@ -108,7 +105,7 @@ li{
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 10px 0px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -133,7 +130,6 @@ li{
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
-  padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

@@ -1,6 +1,6 @@
 <template>
   <!-- <transition name="route"> -->
-  <div class="home bg-body-bg">
+  <div class="home">
     <div class="row">
       <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
     </div>
@@ -31,24 +31,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
-  height: 80vh;
-  // white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+// .home{
+//   height: 80vh;
+//   // white-space: nowrap;
+//   overflow-x: auto;
+//   overflow-y: hidden;
 
-  text-align: center;
-  user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
-  //  div {
-  //   display: inline-block;
-  // }
-}
+//   text-align: center;
+//   user-select: none;
+//   > img{
+//     height: 200px;
+//     width: 200px;
+//   }
+//   //  div {
+//   //   display: inline-block;
+//   // }
+// }
 
-.home::-webkit-scrollbar {
-  width: 0;
-}
+// .home::-webkit-scrollbar {
+//   width: 0;
+// }
 </style>

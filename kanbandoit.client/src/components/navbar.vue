@@ -1,15 +1,11 @@
 <template>
   <nav class="row navbar navbar-expand-lg navbar-dark bg-info">
-    <div class="div col-2">
-      <SideNavBar class="d-flex align-self-center" />
-    </div>
-    <div class="col-2">
+    <SideNavBar />
+    <!-- <div class="col-2">
       <router-link :to="{name: 'Home'}">
         <img src="../images/Bonzai.svg" class="logo" alt="">
       </router-link>
-    </div>
-    <div class="col-5">
-    </div>
+    </div> -->
     <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -19,9 +15,6 @@
         /> -->
     <!-- </div> -->
     <!-- </router-link> -->
-    <div class="create-board-btn">
-      <CreateBoardComponent />
-    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -33,7 +26,10 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse col" id="navbarText">
+    <div class="collapse navbar-collapse d-flex justify-content-end pr-3" id="navbarText">
+      <div class="create-board-btn p-3">
+        <CreateBoardComponent />
+      </div>
       <!-- <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link">
@@ -57,7 +53,7 @@
 
         <div class="dropdown" v-else>
           <div
-            class="dropdown-toggle"
+            class="dropdown-toggle d-flex align-items-center"
             @click="state.dropOpen = !state.dropOpen"
           >
             <img
@@ -73,11 +69,11 @@
             :class="{ show: state.dropOpen }"
             @click="state.dropOpen = false"
           >
-            <router-link :to="{ name: 'Profile' }">
+            <!-- <router-link :to="{ name: 'Profile' }">
               <div class="list-group-item list-group-item-action hoverable">
                 Profile
               </div>
-            </router-link>
+            </router-link> -->
             <div
               class="list-group-item list-group-item-action hoverable"
               @click="logout"

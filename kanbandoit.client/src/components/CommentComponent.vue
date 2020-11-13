@@ -1,9 +1,10 @@
 <template>
   <div class="CommentComponent col-12 p-2 text-light">
     <div class="row">
-      <input class="col-8 comment-content border-0 bg-secondary form-control text-light" type="text" v-model="comment.content" @change="editComment(list, task, comment)" />
+      <div class="col-4"></div>
+      <input class="comment-content border-0 bg-secondary form-control text-light" type="text" v-model="comment.content" @change="editComment(list, task, comment)" />
       <span class="col-1" @click="deleteComment(list, task, comment)">
-        <i class="fa fa-times" aria-hidden="true"></i>
+        <i class="fa fa-trash" aria-hidden="true"></i>
       </span>
     </div>
   </div>
@@ -55,5 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  span, input {
+    cursor: pointer;
+  }
 </style>

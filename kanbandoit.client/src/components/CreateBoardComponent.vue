@@ -3,7 +3,7 @@
     <!-- Button trigger modal -->
     <button
       type="button"
-      class="btn btn-light"
+      class="btn btn-primary"
       data-toggle="modal"
       data-target="#createBoard"
     >
