@@ -1,9 +1,9 @@
 <template>
   <div class="CommentComponent row align-items-center p-2 bg-light rounded justify-content-between text-center">
-    <input class="col-10 comment-content border-0 bg-info form-control text-light" type="text" v-model="comment.content" @change="editComment(list, task, comment)" />
+    <input class="col-10 comment-content border-0 bg-secondary form-control text-dark small-text" type="text" v-model="comment.content" @change="editComment(list, task, comment)" />
     <div class="col-2">
       <span @click="deleteComment(list, task, comment)">
-        <i class="fa fa-trash" aria-hidden="true"></i>
+        <i class="small-text fa fa-trash" aria-hidden="true"></i>
       </span>
     </div>
   </div>
@@ -55,4 +55,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.small-text{
+  font-size: 75%;
+  margin-top: 10px;
+}
 </style>

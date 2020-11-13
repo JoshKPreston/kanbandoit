@@ -1,9 +1,9 @@
 <template>
   <!-- <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded"> -->
-  <div class="ListComponent col-3 p-3 bg-primary card">
+  <div class="ListComponent col-3 p-3 bg-light card">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
-    <div class="row align-items-center p-2 bg-light mb-3 border border-dark">
-      <input class="col-10 list-title border-0 bg-info form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
+    <div class="row align-items-center p-2 bg-light mb-3">
+      <input class="col-10 list-title border-0 bg-info form-control text-light" id="list-title" type="text" v-model="list.title" @change="editList(list)" />
       <div class="col-2 text-center">
         <span @click="deleteList(list)">
           <i class="fa fa-trash" aria-hidden="true"></i>
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.list-title{
+  font-size: 137%;
+  text-align: center;
+}
 </style>
 
 // "description": "aerhaetraetj",

@@ -6,8 +6,8 @@ export class ListController extends BaseController {
   constructor() {
     super('api/board/:id/lists')
     this.router
-      .get('', this.getAllLists)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getAllLists)
       .get('/:listId', this.getListById)
       .post('', this.postList)
       .put('/:listId', this.editListById)

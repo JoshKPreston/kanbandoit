@@ -6,8 +6,8 @@ export class CommentController extends BaseController {
   constructor() {
     super('api/board/:id/lists/:listId/tasks/:taskId/comments')
     this.router
-      .get('', this.getAllComments)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getAllComments)
       .get('/:commentId', this.getCommentById)
       .post('', this.postComment)
       .put('/:commentId', this.editCommentById)
