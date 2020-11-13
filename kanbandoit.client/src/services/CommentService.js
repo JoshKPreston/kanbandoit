@@ -6,7 +6,7 @@ class CommentService {
     try {
       const res = await api.get('api/board/' + boardId + '/lists/' + listId + '/tasks/' + taskId + '/comments')
       AppState.comments = res.data
-      logger.log('AppState.comments: ' + AppState.comments)
+      logger.log(res.data)
     } catch (error) {
       logger.error(error)
     }

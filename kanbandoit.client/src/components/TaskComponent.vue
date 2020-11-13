@@ -1,10 +1,10 @@
 <template>
   <div class="TaskComponent row align-items-center p-2 text-light">
-    <span class="col-2" @click="createComment(task, list)">
+    <span class="col-2" @click="createComment(list, task)">
       <i class="fa fa-commenting" aria-hidden="true"></i>
     </span>
     <input class="col-8 task-title border-0 bg-secondary form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
-    <span class="col-1" @click="deleteTask(task, list)">
+    <span class="col-1" @click="deleteTask(list, task)">
       <i class="fa fa-times" aria-hidden="true"></i>
     </span>
     <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" :list-prop="list" />
@@ -44,8 +44,8 @@ export default {
     return {
       task: computed(() => props.taskProp),
       list: computed(() => props.listProp),
-      // comments: computed(() => AppState.comments.filter(c => c.taskId === props.taskProp._id)),
-      comments: computed(() => AppState.comments),
+      comments: computed(() => AppState.comments.filter(c => c.taskId === props.taskProp._id)),
+      // comments: computed(() => AppState.comments),
 
       editTask: (list, task) => {
         taskService.editTask(route.params.id, list, task)
