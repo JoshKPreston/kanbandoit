@@ -14,10 +14,11 @@
 </template>
 
 <script>
-import { computed, reactive } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { taskService } from '../services/TaskService'
 import { commentService } from '../services/CommentService'
 import { useRoute } from 'vue-router'
+import { AppState } from '../AppState'
 export default {
   name: 'TaskComponent',
   props: {
@@ -36,12 +37,17 @@ export default {
   },
   setup(props) {
     const route = useRoute()
+    onMounted(() => {
+      commentService.getAllComments(route.params.id, props.listProp._id, props.taskProp._id)
+    })
     const state = reactive({
       newComment: {}
     })
     return {
       task: computed(() => props.taskProp),
       list: computed(() => props.listProp),
+      comments: computed(() => AppState.comments.filter(c => c.taskId === props.taskProp._id)),
+
       editTask: (list, task) => {
         taskService.editTask(route.params.id, list, task)
       },

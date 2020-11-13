@@ -35,7 +35,7 @@ export default {
   setup(props) {
     const route = useRoute()
     onMounted(() => {
-      taskService.getAllTasks(route.params.id)
+      taskService.getAllTasks(route.params.id, props.listProp._id)
     })
     const state = reactive({
       title: '',

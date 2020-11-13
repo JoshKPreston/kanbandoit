@@ -27,7 +27,7 @@ export default {
     return {
       state,
       board: computed(() => AppState.board),
-      lists: computed(() => AppState.lists)
+      lists: computed(() => AppState.lists.filter(l => l.boardId === route.params.id))
     }
   }
   // components: { ListComponent }
