@@ -1,9 +1,9 @@
 <template>
   <!-- <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded"> -->
-  <div class="ListComponent col-4 p-3 m-3 bg-secondary card">
+  <div class="ListComponent col-4 p-3 m-3 bg-primary card">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
-    <div class="row align-items-center p-2 bg-primary">
-      <input class="col-10 list-title border-0 bg-secondary form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
+    <div class="row align-items-center p-2 bg-secondary mb-3">
+      <input class="col-10 list-title border-0 bg-info form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
       <div class="col-2 text-center">
         <span @click="deleteList(list)">
           <i class="fa fa-trash" aria-hidden="true"></i>
@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  span, input {
-    cursor: pointer;
-  }
 </style>
 
 // "description": "aerhaetraetj",

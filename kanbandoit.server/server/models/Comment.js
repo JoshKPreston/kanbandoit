@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const Comment = new Schema({
   content: {
     type: String,
-    default: 'Add content here'
+    default: 'Enter comment...'
   },
   // color: {
   //   type: Boolean,

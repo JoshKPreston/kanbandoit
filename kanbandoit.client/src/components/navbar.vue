@@ -1,11 +1,6 @@
 <template>
-  <nav class="row navbar navbar-expand-lg navbar-dark bg-info">
+  <nav class="row navbar navbar-expand navbar-dark bg-info">
     <SideNavBar />
-    <!-- <div class="col-2">
-      <router-link :to="{name: 'Home'}">
-        <img src="../images/Bonzai.svg" class="logo" alt="">
-      </router-link>
-    </div> -->
     <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -15,7 +10,7 @@
         /> -->
     <!-- </div> -->
     <!-- </router-link> -->
-    <button
+    <!-- <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
@@ -25,7 +20,7 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon" />
-    </button>
+    </button> -->
     <div class="collapse navbar-collapse d-flex justify-content-end pr-3" id="navbarText">
       <div class="create-board-btn p-3">
         <CreateBoardComponent />

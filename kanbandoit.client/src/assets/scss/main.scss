@@ -7,6 +7,14 @@
   --grey: #f6f6f6;
 }
 
+
+// #869765 primary
+// #c3ccb6 secondary
+// #5a5454 dark
+// #bdbbac med
+// #f4f4ec light
+
+
 #app {
   display: flex;
   flex-direction: column;
@@ -24,4 +32,12 @@ main {
 
 span {
   display: block;
+}
+
+span, input, textarea {
+  cursor: pointer;
+}
+
+input, textarea {
+  box-shadow: inset 0px 0px 2px 0px #333;
 }

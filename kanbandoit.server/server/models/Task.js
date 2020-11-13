@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const Task = new Schema({
   title: {
     type: String,
-    default: 'Add title here'
+    default: 'Task title...'
   },
   // color: {
   //   type: Boolean,

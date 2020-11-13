@@ -1,10 +1,18 @@
 <template>
   <!-- Use any element to open the sidenav -->
-  <div @click="openNav()" class="side-nav-btn-open p-3">
-    <!-- <i class="fa fa-align-justify fa-4x text-light"></i> -->
-    <button class="btn btn-primary">
+  <!-- <div @click="openNav()" class="side-nav-btn-open p-3"> -->
+  <!-- <i class="fa fa-align-justify fa-4x text-light"></i> -->
+  <!-- <button class="btn btn-primary">
       <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-    </button>
+    </button> -->
+  <!-- <div class="col-2">
+      <router-link :to="{name: 'Home'}">
+        <img src="../images/Bonzai.svg" class="logo" alt="">
+      </router-link>
+    </div> -->
+  <!-- </div> -->
+  <div @click="openNav()" class="side-nav-btn-open p-3">
+    <img src="../images/Bonzai.svg" class="logo" alt="">
   </div>
 
   <div class="SideNaveBar text-center">
@@ -78,16 +86,15 @@ li{
   cursor: pointer;
 }
 .logo {
-  box-shadow: 1px 1px 10px 0px black;
+  box-shadow: 1px 1px 10px 0px #000;
   border-radius: 100%;
-  width: 75px;
-  height: 75px;
-  opacity: 50%;
+  width: 100px;
+  height: 100px;
+  opacity: 80%;
   background-color: #CFBBA3;
 }
 .logo:active{
-  box-shadow: -1px -1px -10px 0px red;
-  opacity: 25%;
+  box-shadow: -1px -1px -10px 0px #000;
 }
 /* The side navigation menu */
 .sidenav {

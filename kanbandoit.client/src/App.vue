@@ -10,8 +10,9 @@
     </router-view>
   </main>
   <footer>
-    <div class="bg-secondary text-light text-center p-4">
-    </div>
+    <!-- <div class="main-logo">
+      <img src="./images/Bonzai.svg" class="logo" alt="" @click="routeHome">
+    </div> -->
   </footer>
 </template>
 
@@ -40,4 +41,10 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
+// .main-logo img {
+//   height: 15vh;
+//   position: absolute;
+//   top: 0;
+//   right: 50vw;
+// }
 </style>

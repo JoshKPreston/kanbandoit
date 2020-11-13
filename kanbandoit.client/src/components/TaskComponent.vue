@@ -1,7 +1,7 @@
 <template>
-  <div class="TaskComponent row align-items-center p-2 text-light border">
-    <input class="pl-5 col-8 task-title border-0 bg-secondary form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
-    <div class="col-4 text-center">
+  <div class="TaskComponent row align-items-center p-2 bg-info justify-content-between text-center">
+    <input class="col-10 task-title border-0 bg-info form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
+    <div class="col-2 text-center">
       <span @click="deleteTask(list, task)">
         <i class="fa fa-trash" aria-hidden="true"></i>
       </span>
@@ -9,7 +9,9 @@
         <i class="fa fa-commenting" aria-hidden="true"></i>
       </span>
     </div>
-    <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" :list-prop="list" />
+    <div class="col-12">
+      <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" :list-prop="list" />
+    </div>
   </div>
 </template>
 
@@ -67,7 +69,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  span, input {
-    cursor: pointer;
-  }
 </style>

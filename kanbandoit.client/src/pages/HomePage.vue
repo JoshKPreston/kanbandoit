@@ -1,7 +1,7 @@
 <template>
   <!-- <transition name="route"> -->
-  <div class="home">
-    <div class="row">
+  <div class="home container-fluid">
+    <div class="row justify-content-between text-center">
       <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
     </div>
   </div>
@@ -12,12 +12,10 @@
 
 import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
-import BoardComponent from '../components/BoardComponent'
 import { boardService } from '../services/BoardService'
 
 export default {
   name: 'Home',
-  components: { BoardComponent },
   setup() {
     onMounted(() => {
       boardService.getAllBoards()
