@@ -1,5 +1,5 @@
 <template>
-  <div class="TaskComponent row align-items-center p-2 bg-info justify-content-between text-center">
+  <div class="TaskComponent row align-items-center p-2 bg-light justify-content-between text-center">
     <input class="col-10 task-title border-0 bg-info form-control text-light" type="text" v-model="task.title" @change="editTask(list, task)" />
     <div class="col-2 text-center">
       <span @click="deleteTask(list, task)">
