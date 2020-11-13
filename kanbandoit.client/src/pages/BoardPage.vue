@@ -1,7 +1,9 @@
 <template>
   <div class="BoardPage container-fluid">
     <CreateListComponent />
-    <ListComponent v-for="l in lists" :key="l._id" :list-prop="l" />
+    <div class="row">
+      <ListComponent v-for="l in lists" :key="l._id" :list-prop="l" />
+    </div>
   </div>
 </template>
 

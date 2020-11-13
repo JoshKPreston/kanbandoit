@@ -1,14 +1,14 @@
 <template>
-  <div class="BoardComponent col-4 m-5 bg-secondary rounded">
+  <div class="BoardComponent col-12 p-3 m-3 bg-secondary card">
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
-    <div class="row p-3">
-      <input class="board-title border-0 bg-secondary" type="text" v-model="board.title" @change="editBoard(board)" />
+    <div class="row align-items-center p-2 bg-primary">
+      <input class="board-title col-8 list-title border-0 bg-secondary form-control text-light" type="text" v-model="board.title" @change="editBoard(board)" />
       <textarea class="board-description border-0 bg-secondary" rows="5" v-model="board.description" @change="editBoard(board)"></textarea>
       <span @click="openBoard(board)" class="btn btn-success">
-        Open
+        <i class="fa fa-share" aria-hidden="true"></i>
       </span>
-      <span @click="deleteBoard(board)" class="btn btn-primary">
-        Delete
+      <span @click="deleteBoard(board)" class="col-1">
+        <i class="fa fa-times" aria-hidden="true"></i>
       </span>
     </div>
   </div>

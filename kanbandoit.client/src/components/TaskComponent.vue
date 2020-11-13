@@ -7,10 +7,8 @@
     <span class="col-1" @click="deleteTask(task, list)">
       <i class="fa fa-times" aria-hidden="true"></i>
     </span>
-    <div>
-    </div>
+    <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" :list-prop="list" />
   </div>
-  <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" />
 </template>
 
 <script>
@@ -46,7 +44,8 @@ export default {
     return {
       task: computed(() => props.taskProp),
       list: computed(() => props.listProp),
-      comments: computed(() => AppState.comments.filter(c => c.taskId === props.taskProp._id)),
+      // comments: computed(() => AppState.comments.filter(c => c.taskId === props.taskProp._id)),
+      comments: computed(() => AppState.comments),
 
       editTask: (list, task) => {
         taskService.editTask(route.params.id, list, task)
@@ -61,8 +60,7 @@ export default {
         commentService.createComment(state.newComment)
       }
     }
-  },
-  components: {}
+  }
 }
 </script>
 

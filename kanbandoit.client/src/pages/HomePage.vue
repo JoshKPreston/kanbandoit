@@ -1,7 +1,7 @@
 <template>
   <!-- <transition name="route"> -->
   <div class="home bg-body-bg">
-    <div class="">
+    <div class="row">
       <BoardComponent v-for="b in boards" :key="b._id" :board-prop="b" />
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
     })
     return {
       profile: computed(() => AppState.profile),
-      boards: computed(() => AppState.boards)
+      boards: computed(() => AppState.boards.filter(b => b.creatorId === AppState.profile._id))
     }
   }
 }
@@ -33,7 +33,7 @@ export default {
 <style scoped lang="scss">
 .home{
   height: 80vh;
-  white-space: nowrap;
+  // white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
 
@@ -43,10 +43,9 @@ export default {
     height: 200px;
     width: 200px;
   }
-   div {
-    display: inline-block;
-    width: min-content;
-  }
+  //  div {
+  //   display: inline-block;
+  // }
 }
 
 .home::-webkit-scrollbar {

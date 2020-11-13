@@ -6,7 +6,7 @@ class TaskService {
     try {
       const res = await api.get('api/board/' + boardId + '/lists/' + listId + '/tasks')
       AppState.tasks = res.data
-      logger.log(res.data)
+      logger.log('AppState.tasks: ' + AppState.tasks)
     } catch (error) {
       logger.error(error)
     }
@@ -32,7 +32,7 @@ class TaskService {
     }
   }
 
-  async editTask(boardId, task, list) {
+  async editTask(boardId, list, task) {
     try {
       const res = await api.put('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id, task)
       const index = AppState.tasks.findIndex(t => t._id === task._id)

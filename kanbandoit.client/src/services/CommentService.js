@@ -6,7 +6,7 @@ class CommentService {
     try {
       const res = await api.get('api/board/' + boardId + '/lists/' + listId + '/tasks/' + taskId + '/comments')
       AppState.comments = res.data
-      logger.log(AppState.comments)
+      logger.log('AppState.comments: ' + AppState.comments)
     } catch (error) {
       logger.error(error)
     }
@@ -32,7 +32,7 @@ class CommentService {
     }
   }
 
-  async editComment(boardId, task, list, comment) {
+  async editComment(boardId, list, task, comment) {
     try {
       const res = await api.put('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id + '/comments/' + comment._id, comment)
       const index = AppState.comments.findIndex(c => c._id === comment._id)
@@ -43,7 +43,7 @@ class CommentService {
     }
   }
 
-  async deleteComment(boardId, task, list, comment) {
+  async deleteComment(boardId, list, task, comment) {
     try {
       const res = await api.delete('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id + '/comments/' + comment._id)
       const index = AppState.comments.findIndex(c => c._id === comment._id)
