@@ -52,7 +52,7 @@ export default {
         state.newComment.boardId = route.params.id
         state.newComment.listId = list._id
         state.newComment.taskId = task._id
-        commentService.createComment(state.newTask)
+        commentService.createComment(state.newComment)
       }
     }
   },
