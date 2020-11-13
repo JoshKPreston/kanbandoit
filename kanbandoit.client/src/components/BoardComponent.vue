@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import { boardService } from '../services/BoardService'
 import router from '../router'
 // import { useRouter } from 'vue-router'
@@ -35,11 +35,11 @@ export default {
     // onMounted((board) => {
     //   state.title = board.title
     // })
-    const state = reactive({
-      title: ''
-    })
+    // const state = reactive({
+    //   title: ''
+    // })
     return {
-      state,
+      // state,
       // profile: computed(() => AppState.profile),
       board: computed(() => props.boardProp),
       openBoard(board) {

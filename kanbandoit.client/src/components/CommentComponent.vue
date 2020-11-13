@@ -1,6 +1,7 @@
 <template>
   <div class="CommentComponent row align-items-center p-2 text-light">
     <input class="col-8 task-title border-0 bg-secondary form-control text-light" type="text" v-model="comment.content" @change="editComment(task, comment)" />
+
     <span class="col-1" @click="deleteComment(task, comment)">
       <i class="fa fa-times" aria-hidden="true"></i>
     </span>

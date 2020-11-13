@@ -8,9 +8,9 @@
       <i class="fa fa-times" aria-hidden="true"></i>
     </span>
     <div>
-      <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" />
     </div>
   </div>
+  <CommentComponent v-for="c in comments" :key="c._id" :comment-prop="c" :task-prop="task" />
 </template>
 
 <script>

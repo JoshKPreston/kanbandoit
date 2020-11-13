@@ -5,8 +5,8 @@ class CommentService {
   async getAllComments(boardId, listId, taskId) {
     try {
       const res = await api.get('api/board/' + boardId + '/lists/' + listId + '/tasks/' + taskId + '/comments')
-      AppState.tasks = res.data
-      logger.log(res.data)
+      AppState.comments = res.data
+      logger.log(AppState.comments)
     } catch (error) {
       logger.error(error)
     }
