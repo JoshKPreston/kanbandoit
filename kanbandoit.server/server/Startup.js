@@ -31,10 +31,11 @@ export default class Startup {
             mediaSrc: ["'self'"],
             frameSrc: ["'self'", `https://${domain}`]
           },
-          reportOnly: false,
+          reportOnly: false
         }
       })
-);
+    )
+
     app.use(cors(corsOptions))
     app.use(bp.json({ limit: '50mb' }))
 
