@@ -3,5 +3,5 @@ module.exports = {
   publicPath: '/',
   outputDir: '../kanbandoit.server/client',
   productionSourceMap: false,
-  transpileDependencies: ['@bcwdev/auth0provider-client']
+  transpileDependencies: ['bcwdev/auth0provider-client']
 }
