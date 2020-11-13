@@ -1,7 +1,7 @@
 <template>
   <div class="BoardPage container-fluid">
     <CreateListComponent />
-    <div class="row">
+    <div class="row justify-content-around text-center">
       <ListComponent v-for="l in lists" :key="l._id" :list-prop="l" />
     </div>
   </div>

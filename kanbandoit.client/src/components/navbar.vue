@@ -1,6 +1,9 @@
 <template>
   <nav class="row navbar navbar-expand navbar-dark bg-info">
     <SideNavBar />
+    <h1 class="title">
+      Kanbandoit
+    </h1>
     <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -111,39 +114,43 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-  box-shadow: 1px 1px 10px 0px black;
-  border-radius: 100%;
-  width: 100px;
-  height: 100px;
-  opacity: 80%;
-  background-color: #CFBBA3;
-}
-.logo:active{
-  box-shadow: -1px -1px -10px 0px red;
+  .title {
+    font-size: 4em;
+    font-family: 'Rock Salt', cursive;
+  }
+  .logo {
+    box-shadow: 1px 1px 10px 0px black;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    opacity: 80%;
+    background-color: #CFBBA3;
+  }
+  .logo:active{
+    box-shadow: -1px -1px -10px 0px red;
 
-  opacity: 50%;
-}
+    opacity: 50%;
+  }
 
-.dropdown-menu {
-  user-select: none;
-  display: block;
-  transform: scale(0);
-  transition: all 0.15s linear;
-}
-.dropdown-menu.show {
-  transform: scale(1);
-}
-.hoverable {
-  cursor: pointer;
-}
-a:hover {
-  text-decoration: none;
-}
-.nav-link{
-  text-transform: uppercase;
-}
-.nav-item .nav-link.router-link-exact-active{
-  color: var(--primary);
-}
+  .dropdown-menu {
+    user-select: none;
+    display: block;
+    transform: scale(0);
+    transition: all 0.15s linear;
+  }
+  .dropdown-menu.show {
+    transform: scale(1);
+  }
+  .hoverable {
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .nav-link{
+    text-transform: uppercase;
+  }
+  .nav-item .nav-link.router-link-exact-active{
+    color: var(--primary);
+  }
 </style>

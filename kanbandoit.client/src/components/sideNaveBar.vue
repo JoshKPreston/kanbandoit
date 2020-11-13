@@ -76,6 +76,7 @@ li{
 .side-nav-logo{
   text-align: center;
   margin-bottom: 20px;
+  opacity: 50%;
 }
 .sidenav{
   display: flex;
@@ -90,8 +91,9 @@ li{
   border-radius: 100%;
   width: 100px;
   height: 100px;
-  opacity: 80%;
-  background-color: #CFBBA3;
+  // opacity: 80%;
+  // background-color: #CFBBA3;
+  background-color: #E8CC98;
 }
 .logo:active{
   box-shadow: -1px -1px -10px 0px #000;

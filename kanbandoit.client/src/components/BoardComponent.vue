@@ -2,14 +2,14 @@
   <div class="BoardComponent col-3 p-3 m-5 bg-primary card">
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row align-items-center p-2 bg-primary">
-      <input class="col-12 mb-3 board-title border-0 bg-secondary form-control text-light" type="text" v-model="board.title" @change="editBoard(board)" />
-      <textarea class="col-12 rounded board-description border-0 bg-secondary" rows="5" v-model="board.description" @change="editBoard(board)"></textarea>
+      <input class="col-12 mb-3 board-title border-0 bg-info form-control text-light" type="text" v-model="board.title" @change="editBoard(board)" />
+      <textarea class="col-12 rounded board-description border-0 bg-info" rows="5" v-model="board.description" @change="editBoard(board)"></textarea>
       <div class="col-12 text-center d-flex justify-content-end align-items-center">
         <span @click="deleteBoard(board)">
-          <i class="fa fa-trash btn btn-secondary m-1" aria-hidden="true"></i>
+          <i class="fa fa-trash btn btn-info m-1" aria-hidden="true"></i>
         </span>
         <span @click="openBoard(board)">
-          <i class="fa fa-share btn btn-secondary m-1" aria-hidden="true"></i>
+          <i class="fa fa-share btn btn-info m-1" aria-hidden="true"></i>
         </span>
       </div>
     </div>
