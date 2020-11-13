@@ -15,14 +15,14 @@
       id="createBoard"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalLongTitle"
+      aria-labelledby="modalBoard"
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form class="form-group" @submit.prevent="createBoard()">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">
+              <h5 class="modal-title" id="modalBoard">
                 Create a board...
               </h5>
               <button
@@ -82,8 +82,7 @@ export default {
         state.newBoard = {}
       }
     }
-  },
-  components: {}
+  }
 }
 </script>
 <style lang="scss" scoped></style>

@@ -43,9 +43,9 @@ class TaskService {
     }
   }
 
-  async deleteTask(task, boardId, listId) {
+  async deleteTask(task, boardId, list) {
     try {
-      const res = await api.delete('api/board/' + boardId + '/lists/' + listId + '/tasks/' + task._id)
+      const res = await api.delete('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id)
       const index = AppState.tasks.findIndex(t => t._id === task._id)
       AppState.tasks.splice(index, 1)
       logger.log(res.data)

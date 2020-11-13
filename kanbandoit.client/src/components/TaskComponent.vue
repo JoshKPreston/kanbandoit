@@ -1,6 +1,7 @@
 <template>
-  <div class="TaskComponent row m-5">
-    <input class="col-12 task-title border-0 bg-secondary" type="text" v-model="task.title" @change="editTask(task, list)" />
+  <div class="TaskComponent row">
+    <input class="col-9 task-title border-0 bg-secondary" type="text" v-model="task.title" @change="editTask(task, list)" />
+    <span @click="deleteTask(task, list)">&times;</span>
   </div>
 </template>
 
@@ -31,6 +32,9 @@ export default {
       list: computed(() => props.listProp),
       editTask: (task, list) => {
         taskService.editTask(task, route.params.id, list)
+      },
+      deleteTask: (task, list) => {
+        taskService.deleteTask(task, route.params.id, list)
       }
     }
   },

@@ -1,5 +1,6 @@
 <template>
-  <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded">
+  <!-- <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded"> -->
+  <div class="ListComponent col-3 p-3 m-5 bg-secondary card">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row p-3">
       <input class="list-title border-0 bg-secondary" type="text" v-model="list.title" @change="editList(list)" />
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import { computed, reactive } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { listService } from '../services/ListService'
 import { useRoute } from 'vue-router'
 import { taskService } from '../services/TaskService'
@@ -33,6 +34,9 @@ export default {
   },
   setup(props) {
     const route = useRoute()
+    onMounted(() => {
+      taskService.getAllTasks(route.params.id)
+    })
     const state = reactive({
       title: '',
       newTask: {}
@@ -41,7 +45,8 @@ export default {
       state,
       // profile: computed(() => AppState.profile),
       list: computed(() => props.listProp),
-      tasks: computed(() => AppState.tasks),
+      // TODO filter task with list id
+      tasks: computed(() => AppState.tasks.filter(t => t.listId === props.listProp._id)),
       // openList(list) {
       //   listService.getListById(list._id)
       // },
