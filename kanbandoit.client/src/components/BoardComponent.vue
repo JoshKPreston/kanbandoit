@@ -1,15 +1,15 @@
 <template>
-  <div class="BoardComponent col-3 m-5 bg-secondary rounded">
+  <div class="BoardComponent col-4 m-5 bg-secondary rounded">
     <!-- <input class="board-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
     <div class="row p-3">
       <input class="board-title border-0 bg-secondary" type="text" v-model="board.title" @change="editBoard(board)" />
       <textarea class="board-description border-0 bg-secondary" rows="5" v-model="board.description" @change="editBoard(board)"></textarea>
-      <button @click="openBoard(board)" class="btn btn-success ml-3 mb-2">
+      <span @click="openBoard(board)" class="btn btn-success">
         Open
-      </button>
-      <button @click="deleteBoard(board)" class="btn btn-primary ml-3 mb-2">
+      </span>
+      <span @click="deleteBoard(board)" class="btn btn-primary">
         Delete
-      </button>
+      </span>
     </div>
   </div>
 </template>

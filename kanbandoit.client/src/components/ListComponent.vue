@@ -1,15 +1,15 @@
 <template>
   <!-- <div class="ListComponent col-3 p-3 m-5 bg-secondary rounded"> -->
-  <div class="ListComponent col-3 p-3 m-5 bg-secondary card">
+  <div class="ListComponent col-4 p-3 m-3 bg-secondary card">
     <!-- <input class="list-title" type="text" v-model="state.title" @input="editedTitle()" /> -->
-    <div class="row p-3">
-      <input class="list-title border-0 bg-secondary" type="text" v-model="list.title" @change="editList(list)" />
-      <button @click="deleteList(list)" class="btn btn-primary ml-3 mb-2">
-        Delete
-      </button>
-      <button @click="createTask(list)">
+    <div class="row align-items-center p-2 bg-primary">
+      <span class="col-2" @click="createTask(list)">
         <i class="fa fa-plus" aria-hidden="true"></i>
-      </button>
+      </span>
+      <input class="col-8 list-title border-0 bg-secondary form-control text-light" type="text" v-model="list.title" @change="editList(list)" />
+      <span class="col-1" @click="deleteList(list)">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </span>
     </div>
     <TaskComponent v-for="t in tasks" :key="t._id" :task-prop="t" :list-prop="list" />
   </div>
@@ -45,16 +45,12 @@ export default {
       state,
       // profile: computed(() => AppState.profile),
       list: computed(() => props.listProp),
-      // TODO filter task with list id
       tasks: computed(() => AppState.tasks.filter(t => t.listId === props.listProp._id)),
-      // openList(list) {
-      //   listService.getListById(list._id)
-      // },
       editList: (list) => {
-        listService.editList(list, route.params.id)
+        listService.editList(route.params.id, list)
       },
       deleteList: (list) => {
-        listService.deleteList(list, route.params.id)
+        listService.deleteList(route.params.id, list)
       },
       createTask: (list) => {
         state.newTask.boardId = route.params.id
@@ -68,7 +64,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  span, input {
+    cursor: pointer;
+  }
 </style>
 
 // "description": "aerhaetraetj",

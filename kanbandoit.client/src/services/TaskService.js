@@ -32,7 +32,7 @@ class TaskService {
     }
   }
 
-  async editTask(task, boardId, list) {
+  async editTask(boardId, task, list) {
     try {
       const res = await api.put('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id, task)
       const index = AppState.tasks.findIndex(t => t._id === task._id)
@@ -43,7 +43,7 @@ class TaskService {
     }
   }
 
-  async deleteTask(task, boardId, list) {
+  async deleteTask(boardId, task, list) {
     try {
       const res = await api.delete('api/board/' + boardId + '/lists/' + list._id + '/tasks/' + task._id)
       const index = AppState.tasks.findIndex(t => t._id === task._id)

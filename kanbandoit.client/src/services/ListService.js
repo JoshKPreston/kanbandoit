@@ -32,7 +32,7 @@ class ListService {
     }
   }
 
-  async editList(list, boardId) {
+  async editList(boardId, list) {
     try {
       const res = await api.put('api/board/' + boardId + '/lists/' + list._id, list)
       const index = AppState.lists.findIndex(l => l._id === list._id)
@@ -43,7 +43,7 @@ class ListService {
     }
   }
 
-  async deleteList(list, boardId) {
+  async deleteList(boardId, list) {
     try {
       const res = await api.delete('api/board/' + boardId + '/lists/' + list._id)
       const index = AppState.lists.findIndex(l => l._id === list._id)

@@ -31,7 +31,9 @@
                 data-dismiss="modal"
                 aria-label="Close"
               >
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
               </button>
             </div>
             <div class="modal-body">

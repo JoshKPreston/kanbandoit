@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
-const Task = new Schema({
-  title: {
+const Comment = new Schema({
+  content: {
     type: String,
-    default: 'Add title here'
+    default: 'Add content here'
   },
   // color: {
   //   type: Boolean,
@@ -14,10 +14,10 @@ const Task = new Schema({
     required: true,
     ref: 'Profile'
   },
-  listId: {
+  taskId: {
     type: String,
     required: true,
-    ref: 'List'
+    ref: 'Task'
   }
 }, {
   timestamps: true,
@@ -26,18 +26,18 @@ const Task = new Schema({
   }
 })
 
-Task.virtual('creator', {
+Comment.virtual('creator', {
   localField: 'creatorId',
   ref: 'Profile',
   foreignField: '_id',
   justOne: true
 })
 
-Task.virtual('list', {
-  localField: 'listId',
-  ref: 'List',
+Comment.virtual('task', {
+  localField: 'taskId',
+  ref: 'Task',
   foreignField: '_id',
   justOne: true
 })
 
-export default Task
+export default Comment
